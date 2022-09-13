@@ -1,0 +1,12 @@
+{
+    "cSpell.words": [
+        "Laravel"
+    ],
+    "files.exclude": {
+        "**/.git"         : true,
+        "**/LICENSE"      : true,
+        "**/.gitignore"   : true,
+        "**/node_modules" : true,
+        "**/.devcontainer": true
+    }
+}
