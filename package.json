@@ -1,19 +1,32 @@
 {
-  "name": "backend_test_augen",
-  "version": "0.1.0",
+  "name"       : "backend_test_augen",
+  "version"    : "0.1.0",
   "description": "Teste para estágio de desenvolvedor backend na empresa Augen Engenharia.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "main"       : "index.js",
+  "scripts"    : {
+    "dev"  : "nodemon ./bin/server.js",
+    "start": "node ./bin/server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Diaszano/Backend_test_Augen.git"
+    "url" : "git+https://github.com/Diaszano/Backend_test_Augen.git"
   },
-  "author": "Diaszano",
+  "author" : "Diaszano",
   "license": "MIT",
-  "bugs": {
+  "bugs"   : {
     "url": "https://github.com/Diaszano/Backend_test_Augen/issues"
   },
-  "homepage": "https://github.com/Diaszano/Backend_test_Augen#readme"
+  "homepage"    : "https://github.com/Diaszano/Backend_test_Augen#readme",
+  "dependencies": {
+    "dotenv"           : "^16.0.2",
+    "express"          : "^4.18.1",
+    "express-validator": "^6.14.2",
+    "morgan"           : "^1.10.0",
+    "mysql2"           : "^2.3.3",
+    "sequelize"        : "^6.21.6"
+  },
+  "devDependencies": {
+    "nodemon"      : "^2.0.19",
+    "sequelize-cli": "^6.4.1"
+  }
 }
