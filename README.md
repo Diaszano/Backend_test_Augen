@@ -11,11 +11,11 @@ O cadastro de funcionários é opcional para caso o(a) candidato(a) queira utili
 
 ## Requisitos
 
-  - Estruturar o sistema observando o MVC mas sem as views
-  - Utilizar MYSQL no banco de dados
-  - As respostas devem ser em JSON
-  - Se o(a) candidato(a) optar por implementar sistema de login (opcional), deverá ser obrigatoriamente utilizar JWT Token
-  - Documentação de como rodar o projeto em um README (requisitos, como rodar, detalhamento de rotas)
+- Estruturar o sistema observando o MVC mas sem as views
+- Utilizar MYSQL no banco de dados
+- As respostas devem ser em JSON
+- Se o(a) candidato(a) optar por implementar sistema de login (opcional), deverá ser obrigatoriamente utilizar JWT Token
+- Documentação de como rodar o projeto em um README (requisitos, como rodar, detalhamento de rotas)
 
 ## Rotas
 

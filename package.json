@@ -1,0 +1,19 @@
+{
+  "name": "backend_test_augen",
+  "version": "0.1.0",
+  "description": "Teste para estágio de desenvolvedor backend na empresa Augen Engenharia.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Diaszano/Backend_test_Augen.git"
+  },
+  "author": "Diaszano",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Diaszano/Backend_test_Augen/issues"
+  },
+  "homepage": "https://github.com/Diaszano/Backend_test_Augen#readme"
+}
