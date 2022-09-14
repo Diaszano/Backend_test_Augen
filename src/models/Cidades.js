@@ -1,24 +1,23 @@
 const { Model, DataTypes } = require('sequelize');
 
-class Equipamentos extends Model {
+class Cidades extends Model {
     static init(connection){
         super.init({
-            nome  : DataTypes.STRING,  //! Corrigir, pois nn sei fazer ainda.
+            nome: DataTypes.STRING
         },{
             sequelize: connection,
-            tableName: 'equipamentos'
+            tableName: 'cidades'
         });
     }
-
     static associate(models){
-        this.belongsTo(
-            models.Cidades, {
+        this.hasMany(
+            models.Equipamentos, {
                 foreignKey: 'cidade_id',
-                as: 'cidade'
+                as: 'equipamentos'
             }
         );
         
     }
 }
 
-module.exports = Equipamentos;
+module.exports = Cidades;

@@ -1,7 +1,9 @@
 {
     "cSpell.words": [
         "augen",
-        "Laravel"
+        "descricao",
+        "Laravel",
+        "vazao"
     ],
     "files.exclude": {
         "**/.git"         : true,

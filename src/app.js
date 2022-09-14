@@ -1,7 +1,7 @@
 const morgan  = require('morgan');
 const express = require('express');
 
-require("./infra/database");
+require("./database");
 
 const app = express();
 
@@ -10,9 +10,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 
-const index        = require('./routes/index');
-const analises     = require('./routes/analises');
-const equipamentos = require('./routes/equipamentos');
+const index        = require('./routes');
+const analises     = require('./routes/analisesRoutes');
+const equipamentos = require('./routes/equipamentosRoutes');
 
 app.use(async (req,res,next) => {
     res.header('Access-Control-Allow-Origin','*');
