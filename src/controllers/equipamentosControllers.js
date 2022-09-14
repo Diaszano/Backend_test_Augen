@@ -23,7 +23,7 @@ exports.index = async (req, res, next) => {
                             descricao: 'Retorna os detalhes do ' +
                                         'equipamento',
                             url: 'http://localhost:3000/' +
-                                'produtos/' + prod.id
+                                'equipamentos/' + prod.id
                         }
                     }
                 }
@@ -35,7 +35,7 @@ exports.index = async (req, res, next) => {
     }
 };
 
-// Listar equipamento pelo id (show)
+//! Listar equipamento pelo id (show)
 exports.show = async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -44,7 +44,37 @@ exports.show = async (req, res, next) => {
         );
     }
     try {
-        return res.status(200).send('Requisição recebida com sucesso!');
+        const id          = parseInt(req.params.id);
+        const equipamento = await Equipamentos.findByPk(id,{
+            include: {
+                association: 'cidade'
+            }
+        });
+
+        if(equipamento == null){
+            return res.status(404).send({
+                mensagem: 'Não foi encontrado o equipamento com esse ID'
+            });
+        }
+
+        const response = {
+            equipamento:{
+                id        : equipamento.id,
+                nome      : equipamento.nome,
+                criado    : equipamento.createdAt,
+                atualizado: equipamento.updatedAt,
+                cidade    : {
+                    nome: equipamento.cidade.nome
+                },
+                analises: {},
+                request : {
+                    tipo     : 'GET',
+                    descricao: 'Retorna todos os equipamentos',
+                    url      : 'http://localhost:3000/equipamentos'
+                }
+            }
+        }
+        return res.status(200).send(response);
     } catch (error) {
         return res.status(500).send({error:error});
     }
@@ -60,7 +90,7 @@ exports.store = async (req, res, next) => {
     }
     try {
         var {nome,cidade} = req.body;
-            cidade        = await Cidades.findOne({
+        var cidade        = await Cidades.findOne({
             where: { nome: cidade }
         });
 
@@ -72,12 +102,25 @@ exports.store = async (req, res, next) => {
             )
         }
 
-        var equipamento = await Equipamentos.create({
+        const equipamento = await Equipamentos.create({
             nome     : nome,
             cidade_id: cidade.id
         });
 
-        return res.status(201).send(equipamento);
+        const response = {
+            mensagem   : "Equipamento inserido com sucesso.",
+            equipamento: {
+                id  : equipamento.id,
+                nome: equipamento.nome
+            },
+            request   : {
+                tipo     : 'GET',
+                descricao: 'Retorna todos os equipamentos',
+                url      : 'http://localhost:3000/equipamentos'
+            }
+        }
+
+        return res.status(201).send(response);
     } catch (error) {
         return res.status(500).send({error:error});
     }
@@ -92,8 +135,67 @@ exports.edit = async (req, res, next) => {
         );
     }
     try {
-        let id = req.params.id;
-        return res.status(202).send(`Requisição recebida com sucesso! ${id}`);
+        const id          = parseInt(req.params.id);
+        const equipamento = await Equipamentos.findByPk(id,{
+            include: {
+                association: 'cidade'
+            }
+        });
+
+        if(equipamento == null){
+            return res.status(404).send({
+                mensagem: 'Não foi encontrado o equipamento com esse ID'
+            });
+        }
+
+        const novo = {
+            nome  : req.body.nome,
+            cidade: req.body.cidade
+        };
+
+        if(equipamento.cidade.nome == novo.cidade){
+            if(equipamento.nome != novo.nome){
+                equipamento.nome = novo.nome;
+            }else{
+                return res.status(400).send(
+                    {
+                        mensagem: "Não tem alterações a ser feita"
+                    }
+                )
+            }
+        }else{
+            var cidade = await Cidades.findOne({
+                where: { nome: novo.cidade }
+            });
+            
+            if(cidade == null){
+                cidade = await Cidades.create(
+                    {
+                        nome: novo.cidade
+                    }
+                )
+            }
+
+            equipamento.nome      = novo.nome;
+            equipamento.cidade_id = cidade.id;
+        }
+        console.log("Antes do erro?")
+        const resultadoSave = await equipamento.save();
+
+        const response = {
+            mensagem: "Equipamento atualizado com sucesso.",
+            id      : resultadoSave.id,
+            nome    : resultadoSave.nome,
+            cidade  : novo.cidade,
+            request : {
+                tipo     : 'GET',
+                descricao: 'Retorna os detalhes do produto',
+                url      : 'http://localhost:3000/' +
+                        'equipamentos/' + resultadoSave.id
+            }
+        }
+
+        return res.status(202).send(response);
     } catch (error) {
         return res.status(500).send({error:error});
     }
@@ -108,8 +210,34 @@ exports.delete = async (req, res, next) => {
         );
     }
     try {
-        let id = req.params.id;
-        return res.status(202).send(`Requisição recebida com sucesso! ${id}`);
+        const id          = parseInt(req.params.id);
+        const equipamento = await Equipamentos.findByPk(id,{
+            include: {
+                association: 'cidade'
+            }
+        });
+
+        if(equipamento == null){
+            return res.status(404).send({
+                mensagem: 'Não foi encontrado o equipamento com esse ID'
+            });
+        }
+
+        equipamento.destroy();
+
+        const response = {
+            mensagem: "Equipamento deletado com sucesso.",
+            request : {
+                tipo     : 'POST',
+                descricao: 'Insere um novo equipamento',
+                url      : 'http://localhost:3000/equipamentos',
+                body     : {
+                    nome  : "String",
+                    cidade: "String"
+                }
+            }
+        };
+        return res.status(202).send(response);
     } catch (error) {
         return res.status(500).send({error:error});
     }
