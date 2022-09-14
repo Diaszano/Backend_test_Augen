@@ -18,8 +18,8 @@ module.exports = {
           type      : Sequelize.INTEGER.UNSIGNED,
           allowNull : false,
           references: {
-            model: 'cidades',
-            key  : 'id',
+            model   : 'cidades',
+            key     : 'id',
             onUpdate: 'CASCADE',
             onDelete: 'RESTRICT'
           }

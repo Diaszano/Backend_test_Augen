@@ -13,7 +13,7 @@ class Cidades extends Model {
         this.hasMany(
             models.Equipamentos, {
                 foreignKey: 'cidade_id',
-                as: 'equipamentos'
+                as        : 'equipamentos'
             }
         );
         

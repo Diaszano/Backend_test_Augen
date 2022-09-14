@@ -7,7 +7,7 @@ class Analises extends Model {
             cloro      : DataTypes.FLOAT,
             fluor      : DataTypes.FLOAT,
             vazao      : DataTypes.FLOAT,
-            equipamento: DataTypes.INTEGER //! Corrigir, pois nn sei fazer ainda.
+            equipamento: DataTypes.INTEGER  //! Corrigir, pois nn sei fazer ainda.
         },{
             sequelize: connection,
             tableName: 'analises'
