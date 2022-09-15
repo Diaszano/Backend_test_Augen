@@ -1,5 +1,7 @@
-const morgan  = require('morgan');
-const express = require('express');
+const morgan          = require('morgan');
+const express         = require('express');
+const swaggerUI       = require('swagger-ui-express');
+const swaggerDocument = require('../swagger.json');
 
 require("./database");
 
@@ -8,7 +10,6 @@ const app = express();
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
 
 const index        = require('./routes');
 const analises     = require('./routes/analisesRoutes');
@@ -35,6 +36,8 @@ app.use(async (req,res,next) => {
 app.use('/', index);
 app.use('/analises', analises);
 app.use('/equipamentos', equipamentos);
+app.use('/docs',swaggerUI.serve,swaggerUI.setup(swaggerDocument));
+
 
 app.use(async (req,res,next) => {
     const erro = new Error(

@@ -32,8 +32,8 @@ module.exports = {
           references: {
             model   : 'equipamentos',
             key     : 'id',
-            onUpdate: 'CASCADE',
-            onDelete: 'SET NULL'
+            onUpdate: 'RESTRICT',
+            onDelete: 'RESTRICT'
           }
         },
         created_at:{

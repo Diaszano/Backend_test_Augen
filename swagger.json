@@ -1,0 +1,376 @@
+{
+    "openapi": "3.0.0",
+    "info"   : {
+        "title"      : "API de teste Augen Engenharia",
+        "description": "Documentação da API de teste Augen Engenharia",
+        "version"    : "0.1.0",
+        "contact"    : {
+            "email": "lucas.dsantos@inf.ufpel.edu.br"
+        },
+        "servers":[
+            {
+                "url"        : "http:localhost:3000",
+                "description": "API de testes"
+            }
+        ]
+    },
+    "paths":{
+        "/equipamentos":{
+            "post":{
+                "summary"    : "Cadastro de equipamentos",
+                "description": "Essa rota será responsável por cadastrar um novo equipamento.",
+                "tags"       : ["Equipamentos"],
+                "requestBody": {
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "Equipamento":{
+                                    "value":{
+                                        "nome":{
+                                            "type": "string"
+                                        },
+                                        "cidade":{
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "examples":{
+                                "Equipamento":{
+                                    "value":{
+                                        "nome"  : "centrífuga_mx1540",
+                                        "cidade": "Pelotas"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "500":{
+                        "description": "Erro interno."
+                    },
+                    "400":{
+                        "description": "Faltando argumentos"
+                    },
+                    "201":{
+                        "description": "OK",
+                        "content"    : {
+                            "application/json":{
+                                
+                            }
+                        }
+                    }
+
+                }
+            },
+            "get":{
+                "description": "Busca de todos os equipamentos",
+                "summary"    : "Busca todos os equipamentos cadastrados na API",
+                "tags"       : ["Equipamentos"],
+                "responses"  : {
+                    "500":{
+                        "description": "Erro interno."
+                    },
+                    "200":{
+                        "description": "OK",
+                        "content"    : {
+                            "application/json":{
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/equipamentos/{id}":{
+            "get":{
+                "description": "Busca um equipamento",
+                "summary"    : "Busca um equipamento cadastrado na API",
+                "tags"       : ["Equipamentos"],
+                "parameters" : [
+                    {
+                        "name"       : "id",
+                        "in"         : "path",
+                        "description": "ID do equipamento",
+                        "required"   : true
+                    }
+                ],
+                "responses":{
+                    "500":{
+                        "description": "Erro interno."
+                    },
+                    "404":{
+                        "description": "Equipamento inexistente."
+                    },
+                    "200":{
+                        "description": "OK",
+                        "content"    : {
+                            "application/json":{
+                            }
+                        }
+                    }
+                }
+            },
+            "put":{
+                "description": "Atualiza um equipamento",
+                "summary"    : "Atualiza um equipamento cadastrado na API",
+                "tags"       : ["Equipamentos"],
+                "parameters" : [
+                    {
+                        "name"       : "id",
+                        "in"         : "path",
+                        "description": "ID do equipamento",
+                        "required"   : true
+                    }
+                ],
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "Equipamento":{
+                                    "value":{
+                                        "nome":{
+                                            "type": "string"
+                                        },
+                                        "cidade":{
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "examples":{
+                                "Equipamento":{
+                                    "value":{
+                                        "nome"  : "centrífuga_mx1540",
+                                        "cidade": "Pelotas"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "500":{
+                        "description": "Erro interno."
+                    },
+                    "404":{
+                        "description": "Equipamento inexistente."
+                    },
+                    "202":{
+                        "description": "OK",
+                        "content"    : {
+                            "application/json":{
+                            }
+                        }
+                    }
+                }
+            },
+            "delete":{
+                "description": "Deleta um equipamento",
+                "summary"    : "Deleta um equipamento cadastrado na API",
+                "tags"       : ["Equipamentos"],
+                "parameters" : [
+                    {
+                        "name"       : "id",
+                        "in"         : "path",
+                        "description": "ID do equipamento",
+                        "required"   : true
+                    }
+                ],
+                "responses":{
+                    "500":{
+                        "description": "Erro interno."
+                    },
+                    "404":{
+                        "description": "Equipamento inexistente."
+                    },
+                    "202":{
+                        "description": "OK",
+                        "content"    : {
+                            "application/json":{
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/analises":{
+            "post":{
+                "summary"    : "Cadastro uma análise",
+                "description": "Essa rota será responsável por cadastrar uma nova análise.",
+                "tags"       : ["Análises"],
+                "requestBody": {
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "Analise":{
+                                    "value":{
+                                        "ph":{
+                                            "type": "number"
+                                        },
+                                        "cloro":{
+                                            "type": "number"
+                                        },
+                                        "fluor":{
+                                            "type": "number"
+                                        },
+                                        "vazao":{
+                                            "type": "number"
+                                        },
+                                        
+                                        "equipamento_id":{
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            },
+                            "examples":{
+                                "Analise":{
+                                    "value":{
+                                        "ph"            : 2.5,
+                                        "cloro"         : 5.9,
+                                        "fluor"         : 6.48,
+                                        "vazao"         : 98.4,
+                                        "equipamento_id": 5
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "500":{
+                        "description": "Erro interno."
+                    },
+                    "400":{
+                        "description": "Faltando argumentos"
+                    },
+                    "201":{
+                        "description": "OK",
+                        "content"    : {
+                            "application/json":{
+                                
+                            }
+                        }
+                    }
+
+                }
+            },
+            "get":{
+                "description": "Busca análises",
+                "summary"    : "Busca análises cadastradas na API",
+                "tags"       : ["Análises"],
+                "responses"  : {
+                    "500":{
+                        "description": "Erro interno."
+                    },
+                    "200":{
+                        "description": "OK",
+                        "content"    : {
+                            "application/json":{
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/analises/{id}":{
+            "get":{
+                "description": "Busca análise com o id",
+                "summary"    : "Busca análise com o id cadastrado na API",
+                "tags"       : ["Análises"],
+                "parameters" : [
+                    {
+                        "name"       : "id",
+                        "in"         : "path",
+                        "description": "ID do equipamento",
+                        "required"   : true
+                    }
+                ],
+                "responses":{
+                    "500":{
+                        "description": "Erro interno."
+                    },
+                    "404":{
+                        "description": "Equipamento inexistente."
+                    },
+                    "200":{
+                        "description": "OK",
+                        "content"    : {
+                            "application/json":{
+                            }
+                        }
+                    }
+                }
+            },
+            "delete":{
+                "description": "Deleta uma análise",
+                "summary"    : "Deleta uma análise cadastrada na API",
+                "tags"       : ["Análises"],
+                "parameters" : [
+                    {
+                        "name"       : "id",
+                        "in"         : "path",
+                        "description": "ID da análise",
+                        "required"   : true
+                    }
+                ],
+                "responses":{
+                    "500":{
+                        "description": "Erro interno."
+                    },
+                    "404":{
+                        "description": "Análise inexistente."
+                    },
+                    "202":{
+                        "description": "OK",
+                        "content"    : {
+                            "application/json":{
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/analises/data":{
+            "get":{
+                "description": "Busca análises com a data",
+                "summary"    : "Busca análises com a data cadastrada na API",
+                "tags"       : ["Análises"],
+                "requestBody": {
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "Analise":{
+                                    "value":{
+                                        "data":{
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "examples":{
+                                "Analise":{
+                                    "value":{
+                                        "data": "2022-09-15"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "500":{
+                        "description": "Erro interno."
+                    },
+                    "400":{
+                        "description": "Faltando argumentos"
+                    },
+                    "200":{
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    }
+}

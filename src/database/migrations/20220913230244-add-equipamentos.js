@@ -20,7 +20,7 @@ module.exports = {
           references: {
             model   : 'cidades',
             key     : 'id',
-            onUpdate: 'CASCADE',
+            onUpdate: 'RESTRICT',
             onDelete: 'RESTRICT'
           }
         },
