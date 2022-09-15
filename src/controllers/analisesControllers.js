@@ -1,8 +1,16 @@
 const {validationResult} = require('express-validator');
+const Analises           = require('../models/Analises');
 
 // Listar todas análises (index)
 exports.index = async (req, res, next) => {
     try {
+        const analises = await Analises.findAll({
+            include:{
+                association:'equipamento'
+            }
+        })
+
+        var res
         return res.status(200).send('Requisição recebida com sucesso!');
     } catch (error) {
         return res.status(500).send({error:error});
