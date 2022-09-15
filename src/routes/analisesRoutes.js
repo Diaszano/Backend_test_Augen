@@ -11,14 +11,6 @@ router.get(
 );
 
 router.get(
-    '/:id',[
-        param('id').isInt({'gt':0}).withMessage(
-            "O parâmetro id tem que ser um inteiro maior que zero"
-        )
-    ], controller.show
-);
-
-router.get(
     '/data',[
         body('data').isDate().withMessage(
             "O campo de data é obrigatório e é uma date."
@@ -27,13 +19,35 @@ router.get(
     
 );
 
+router.get(
+    '/:id',[
+        param('id').isInt({'gt':0}).withMessage(
+            "O parâmetro id tem que ser um inteiro maior que zero"
+        )
+    ], controller.show
+);
+
+
 router.post(
     '/',[
-        body('nome').isString().withMessage(
-            "O campo de nome é obrigatório e é uma string."
+        body('ph').isFloat().withMessage(
+            "O campo do ph é obrigatório e é um float."
         ),
-        body('cidade').isString().withMessage(
-            "O campo da cidade é obrigatório e é uma string."
+        body('cloro').isFloat({'max':100}).withMessage(
+            "O campo do cloro é obrigatório e é um float"
+            +" menor que igual a 100."
+        ),
+        body('fluor').isFloat({'max':100}).withMessage(
+            "O campo do fluor é obrigatório e é um float"
+            +" menor que igual a 100."
+        ),
+        body('vazao').isFloat({'gt':0}).withMessage(
+            "O campo da vazão é obrigatório e é um float "
+            +"maior que zero."
+        ),
+        body('equipamento_id').isInt({'gt':0}).withMessage(
+            "O campo equipamento_id tem que ser" + 
+            " um inteiro maior que zero."
         )
     ], controller.store
 );

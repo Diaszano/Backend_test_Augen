@@ -15,7 +15,7 @@ exports.index = async (req, res, next) => {
                 }
             ]
         });
-        var response = {
+        const response = {
             quantidade  : equipamentos.length,
             equipamentos: equipamentos.map(
                 equipamento => {
