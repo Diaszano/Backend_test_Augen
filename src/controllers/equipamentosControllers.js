@@ -6,24 +6,30 @@ const Cidades            = require('../models/Cidades');
 exports.index = async (req, res, next) => {
     try {
         const equipamentos = await Equipamentos.findAll({
-            include: {
-                association: 'cidade'
-            }
+            include:[
+                {
+                    association: 'cidade'
+                },
+                {
+                    association: 'analises'
+                }
+            ]
         });
         var response = {
             quantidade  : equipamentos.length,
             equipamentos: equipamentos.map(
-                prod => {
+                equipamento => {
                     return {
-                        id     : parseInt(prod.id),
-                        nome   : prod.nome,
-                        cidade : prod.cidade.nome,
-                        request: {
+                        id          : equipamento.id,
+                        nome        : equipamento.nome,
+                        cidade      : equipamento.cidade.nome,
+                        qtd_analises: equipamento.analises.length,
+                        request     : {
                             tipo     : 'GET',
                             descricao: 'Retorna os detalhes do ' +
                                         'equipamento',
                             url: 'http://localhost:3000/' +
-                                'equipamentos/' + prod.id
+                                'equipamentos/' + equipamento.id
                         }
                     }
                 }
@@ -35,7 +41,7 @@ exports.index = async (req, res, next) => {
     }
 };
 
-//! Listar equipamento pelo id (show)
+// Listar equipamento pelo id (show)
 exports.show = async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -46,9 +52,14 @@ exports.show = async (req, res, next) => {
     try {
         const id          = parseInt(req.params.id);
         const equipamento = await Equipamentos.findByPk(id,{
-            include: {
-                association: 'cidade'
-            }
+            include:[
+                {
+                    association: 'cidade'
+                },
+                {
+                    association: 'analises'
+                }
+            ]
         });
 
         if(equipamento == null){
@@ -66,7 +77,25 @@ exports.show = async (req, res, next) => {
                 cidade    : {
                     nome: equipamento.cidade.nome
                 },
-                analises: {},
+                qtd_analises: equipamento.analises.length,
+                analises    : equipamento.analises.map(
+                    analise => {
+                        return {
+                            id     : analise.id,
+                            ph     : analise.ph,
+                            cloro  : analise.cloro,
+                            fluor  : analise.fluor,
+                            vazao  : analise.vazao,
+                            request: {
+                                tipo     : 'GET',
+                                descricao: 'Retorna os detalhes do ' +
+                                            'equipamento',
+                                url: 'http://localhost:3000/' +
+                                    'analises/' + analise.id
+                            }
+                        }
+                    }
+                ),
                 request : {
                     tipo     : 'GET',
                     descricao: 'Retorna todos os equipamentos',

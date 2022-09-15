@@ -11,6 +11,8 @@ Cidades.init(connection);
 Analises.init(connection);
 Equipamentos.init(connection);
 
+Cidades.associate(connection.models);
+Analises.associate(connection.models);
 Equipamentos.associate(connection.models);
 
 module.exports = connection;

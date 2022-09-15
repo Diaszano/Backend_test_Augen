@@ -17,6 +17,12 @@ class Equipamentos extends Model {
                 as        : 'cidade'
             }
         );
+        this.hasMany(
+            models.Analises, {
+                foreignKey: 'equipamento_id',
+                as        : 'analises'
+            }
+        );
         
     }
 }
