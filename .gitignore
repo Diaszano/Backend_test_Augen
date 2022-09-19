@@ -1,6 +1,6 @@
 # VSCode
-*/.devcontainer
-*/.VSCode
+.devcontainer
+.VSCode
 
 # Logs
 logs
