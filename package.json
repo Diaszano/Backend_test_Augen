@@ -1,30 +1,30 @@
 {
-  "name"       : "backend_test_augen",
-  "version"    : "0.1.1",
+  "name": "backend_test_augen",
+  "version": "0.1.2",
   "description": "Teste para estágio de desenvolvedor backend na empresa Augen Engenharia.",
-  "main"       : "./bin/server.js",
-  "scripts"    : {
-    "dev"  : "nodemon ./bin/server.js",
+  "main": "./bin/server.js",
+  "scripts": {
+    "dev": "nodemon ./bin/server.js",
     "start": "npx sequelize db:migrate && node ./bin/server.js"
   },
   "repository": {
     "type": "git",
-    "url" : "git+https://github.com/Diaszano/Backend_test_Augen.git"
+    "url": "git+https://github.com/Diaszano/Backend_test_Augen.git"
   },
-  "author" : "Diaszano",
+  "author": "Diaszano",
   "license": "MIT",
-  "bugs"   : {
+  "bugs": {
     "url": "https://github.com/Diaszano/Backend_test_Augen/issues"
   },
-  "homepage"    : "https://github.com/Diaszano/Backend_test_Augen#readme",
+  "homepage": "https://github.com/Diaszano/Backend_test_Augen#readme",
   "dependencies": {
-    "dotenv"            : "^16.0.2",
-    "express"           : "^4.18.1",
-    "express-validator" : "^6.14.2",
-    "morgan"            : "^1.10.0",
-    "mysql2"            : "^2.3.3",
-    "sequelize"         : "^6.21.6",
-    "sequelize-cli"     : "^6.4.1",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "express-validator": "^6.14.2",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.6",
+    "sequelize-cli": "^6.4.1",
     "swagger-ui-express": "^4.5.0"
   },
   "devDependencies": {
