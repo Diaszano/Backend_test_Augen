@@ -105,7 +105,7 @@ Eu sei que não ficou as mil maravilhas, mas o resultado obtido fazendo foi bom.
 
 Bah tiveram várias, mas creio que seja programar em uma linguagem nova e me acostumar com o seu jeito, fazer a documentação e não ter mais tempos entre os meus estudos para este projeto e as provas que estão vindo, mas mesmo com isso tudo eu consegui me divertir fazendo e espero que dê bons resultados.
 
-## Pós entrega
+## Pós entrega(Antes do dia 19/09 ás 23:59)
 
 Eu como ainda estava pensando neste projeto vim ver alguns error que eu achei que poderiam ter e os arrumei.
 
