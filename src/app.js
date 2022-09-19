@@ -12,6 +12,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 const index        = require('./routes');
+const usuarios     = require('./routes/usuariosRoutes');
 const analises     = require('./routes/analisesRoutes');
 const equipamentos = require('./routes/equipamentosRoutes');
 
@@ -34,6 +35,7 @@ app.use(async (req,res,next) => {
 });
 
 app.use('/', index);
+app.use('/usuarios', usuarios);
 app.use('/analises', analises);
 app.use('/equipamentos', equipamentos);
 app.use('/docs',swaggerUI.serve,swaggerUI.setup(swaggerDocument));
