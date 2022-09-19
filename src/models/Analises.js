@@ -3,10 +3,10 @@ const { Model, DataTypes } = require('sequelize');
 class Analises extends Model {
     static init(connection){
         super.init({
-            ph         : DataTypes.FLOAT,
-            cloro      : DataTypes.FLOAT,
-            fluor      : DataTypes.FLOAT,
-            vazao      : DataTypes.FLOAT,
+            ph   : DataTypes.FLOAT,
+            cloro: DataTypes.FLOAT,
+            fluor: DataTypes.FLOAT,
+            vazao: DataTypes.FLOAT,
         },{
             sequelize: connection,
             tableName: 'analises'

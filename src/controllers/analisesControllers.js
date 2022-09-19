@@ -1,6 +1,6 @@
 const {validationResult} = require('express-validator');
-const Analises           = require('../models/Analises');
 const Equipamentos       = require('../models/Equipamentos');
+const Analises           = require('../models/Analises');
 const { Op }             = require("sequelize");
 
 
