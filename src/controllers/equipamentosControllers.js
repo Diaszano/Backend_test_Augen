@@ -252,7 +252,7 @@ exports.delete = async (req, res, next) => {
             });
         }
 
-        equipamento.destroy();
+        await equipamento.destroy();
 
         const response = {
             mensagem: "Equipamento deletado com sucesso.",

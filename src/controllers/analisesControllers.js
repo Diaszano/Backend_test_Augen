@@ -209,7 +209,7 @@ exports.delete = async (req, res, next) => {
             });
         }
 
-        analise.destroy();
+        await analise.destroy();
 
         const response = {
             mensagem: "Análise deletada com sucesso.",
