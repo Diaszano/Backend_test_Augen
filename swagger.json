@@ -1,9 +1,9 @@
 {
-    "openapi": "3.0.0",
+    "openapi": "3.0.3",
     "info"   : {
         "title"      : "API de teste Augen Engenharia",
         "description": "Documentação da API de teste Augen Engenharia",
-        "version"    : "0.1.0",
+        "version"    : "0.1.2",
         "contact"    : {
             "email": "lucas.dsantos@inf.ufpel.edu.br"
         },
@@ -48,16 +48,32 @@
                 },
                 "responses":{
                     "500":{
-                        "description": "Erro interno."
+                        "description": "Erro interno.",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 500"
+                                }
+                            }
+                        }
                     },
                     "400":{
-                        "description": "Faltando argumentos"
+                        "description": "Faltando argumentos",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 400"
+                                }
+                            }
+                        }
                     },
                     "201":{
                         "description": "OK",
                         "content"    : {
                             "application/json":{
-                                
+                                "schema":{
+                                    "$ref": "#/components/schemas/Response Equipamentos store"
+                                } 
                             }
                         }
                     }
@@ -70,12 +86,22 @@
                 "tags"       : ["Equipamentos"],
                 "responses"  : {
                     "500":{
-                        "description": "Erro interno."
+                        "description": "Erro interno.",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 500"
+                                }
+                            }
+                        }
                     },
                     "200":{
                         "description": "OK",
                         "content"    : {
                             "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Response Equipamentos index"
+                                }
                             }
                         }
                     }
@@ -97,15 +123,42 @@
                 ],
                 "responses":{
                     "500":{
-                        "description": "Erro interno."
+                        "description": "Erro interno.",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 500"
+                                }
+                            }
+                        }
                     },
                     "404":{
-                        "description": "Equipamento inexistente."
+                        "description": "Objeto  inexistente.",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 404"
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "description": "Faltando argumentos",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 400"
+                                }
+                            }
+                        }
                     },
                     "200":{
                         "description": "OK",
                         "content"    : {
                             "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Response Equipamentos show"
+                                }
                             }
                         }
                     }
@@ -151,15 +204,42 @@
                 },
                 "responses":{
                     "500":{
-                        "description": "Erro interno."
+                        "description": "Erro interno.",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 500"
+                                }
+                            }
+                        }
                     },
                     "404":{
-                        "description": "Equipamento inexistente."
+                        "description": "Objeto  inexistente.",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 404"
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "description": "Faltando argumentos",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 400"
+                                }
+                            }
+                        }
                     },
                     "202":{
                         "description": "OK",
                         "content"    : {
                             "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Response Equipamentos edit"
+                                }
                             }
                         }
                     }
@@ -179,15 +259,42 @@
                 ],
                 "responses":{
                     "500":{
-                        "description": "Erro interno."
+                        "description": "Erro interno.",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 500"
+                                }
+                            }
+                        }
                     },
                     "404":{
-                        "description": "Equipamento inexistente."
+                        "description": "Objeto  inexistente.",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 404"
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "description": "Faltando argumentos",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 400"
+                                }
+                            }
+                        }
                     },
                     "202":{
                         "description": "OK",
                         "content"    : {
                             "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Response Delete"
+                                }
                             }
                         }
                     }
@@ -240,16 +347,32 @@
                 },
                 "responses":{
                     "500":{
-                        "description": "Erro interno."
+                        "description": "Erro interno.",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 500"
+                                }
+                            }
+                        }
                     },
                     "400":{
-                        "description": "Faltando argumentos"
+                        "description": "Faltando argumentos",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 400"
+                                }
+                            }
+                        }
                     },
                     "201":{
                         "description": "OK",
                         "content"    : {
                             "application/json":{
-                                
+                                "schema":{
+                                    "$ref": "#/components/schemas/Response Analises store"
+                                }
                             }
                         }
                     }
@@ -262,12 +385,22 @@
                 "tags"       : ["Análises"],
                 "responses"  : {
                     "500":{
-                        "description": "Erro interno."
+                        "description": "Erro interno.",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 500"
+                                }
+                            }
+                        }
                     },
                     "200":{
                         "description": "OK",
                         "content"    : {
                             "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Response Analises index"
+                                }
                             }
                         }
                     }
@@ -289,15 +422,42 @@
                 ],
                 "responses":{
                     "500":{
-                        "description": "Erro interno."
+                        "description": "Erro interno.",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 500"
+                                }
+                            }
+                        }
                     },
                     "404":{
-                        "description": "Equipamento inexistente."
+                        "description": "Objeto  inexistente.",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 404"
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "description": "Faltando argumentos",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 400"
+                                }
+                            }
+                        }
                     },
                     "200":{
                         "description": "OK",
                         "content"    : {
                             "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Response Analises show"
+                                }
                             }
                         }
                     }
@@ -317,15 +477,42 @@
                 ],
                 "responses":{
                     "500":{
-                        "description": "Erro interno."
+                        "description": "Erro interno.",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 500"
+                                }
+                            }
+                        }
                     },
                     "404":{
-                        "description": "Análise inexistente."
+                        "description": "Objeto  inexistente.",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 404"
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "description": "Faltando argumentos",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 400"
+                                }
+                            }
+                        }
                     },
                     "202":{
                         "description": "OK",
                         "content"    : {
                             "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Response Delete"
+                                }
                             }
                         }
                     }
@@ -361,13 +548,348 @@
                 },
                 "responses":{
                     "500":{
-                        "description": "Erro interno."
+                        "description": "Erro interno.",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 500"
+                                }
+                            }
+                        }
+                    },
+                    "404":{
+                        "description": "Objeto  inexistente.",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 404"
+                                }
+                            }
+                        }
                     },
                     "400":{
-                        "description": "Faltando argumentos"
+                        "description": "Faltando argumentos",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 400"
+                                }
+                            }
+                        }
                     },
                     "200":{
-                        "description": "OK"
+                        "description": "OK",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Response Analises data"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components":{
+        "schemas":{
+            "Error 500":{
+                "type"      : "object",
+                "properties": {
+                    "error":{
+                        "type": "object"
+                    }
+                }
+            },
+            "Error 404":{
+                "type"      : "object",
+                "properties": {
+                    "mensagem":{
+                        "type": "string"
+                    }
+                }
+            },
+            "Error 400":{
+                "type"      : "object",
+                "properties": {
+                    "errors":{
+                        "type" : "array",
+                        "items": {
+                            "type"      : "object",
+                            "properties": {
+                                "msg":{
+                                    "type": "string"
+                                },
+                                "param":{
+                                    "type": "string"
+                                },
+                                "location":{
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "Example Response":{
+                "type"      : "object",
+                "properties": {
+                    "tipo":{
+                        "type": "string"
+                    },
+                    "descricao":{
+                        "type": "string"
+                    },
+                    "url":{
+                        "type": "string"
+                    },
+                    "body":{
+                        "type": "object"
+                    }
+                }
+            },
+            "Response Delete":{
+                "type"      : "object",
+                "properties": {
+                    "mensagem":{
+                        "type": "string"
+                    },
+                    "request":{
+                        "type": "object",
+                        "$ref": "#/components/schemas/Example Response"
+                    }
+                }
+            },
+            "Response Equipamentos edit":{
+                "type"      : "object",
+                "properties": {
+                    "mensagem":{
+                        "type": "string"
+                    },
+                    "id":{
+                        "type": "integer"
+                    },
+                    "nome":{
+                        "type": "string"
+                    },
+                    "cidade":{
+                        "type": "string"
+                    },
+                    "request":{
+                        "type": "object",
+                        "$ref": "#/components/schemas/Example Response"
+                    }
+                }
+            },
+            "Response Equipamentos show":{
+                "type"      : "object",
+                "properties": {
+                    "equipamento":{
+                        "type"      : "object",
+                        "properties": {
+                            "id":{
+                                "type": "integer"
+                            },
+                            "nome":{
+                                "type": "string"
+                            },
+                            "criado":{
+                                "type"  : "string",
+                                "format": "date-time"
+                            },
+                            "atualizado":{
+                                "type"  : "string",
+                                "format": "date-time"
+                            },
+                            "cidade":{
+                                "type"      : "object",
+                                "properties": {
+                                    "nome":{
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "qtd_analises":{
+                                "type": "integer"
+                            },
+                            "analises":{
+                                "type" : "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Analise"
+                                }
+                            },
+                            "request":{
+                                "type": "object",
+                                "$ref": "#/components/schemas/Example Response"
+                            }
+                        }
+                    }
+                }
+            },
+            "Response Equipamentos store":{
+                "type"      : "object",
+                "properties": {
+                    "mensagem":{
+                        "type": "string"
+                    },
+                    "equipamento":{
+                        "type"      : "object",
+                        "properties": {
+                            "id":{
+                                "type": "integer"
+                            },
+                            "nome":{
+                                "type": "string"
+                            },
+                            "request":{
+                                "type": "object",
+                                "$ref": "#/components/schemas/Example Response"
+                            }
+                        }
+                    }
+                }
+            },
+            "Response Equipamentos index":{
+                "type"      : "object",
+                "properties": {
+                    "quantidade":{
+                        "type": "integer"
+                    },
+                    "equipamentos":{
+                        "type" : "array",
+                        "items": {
+                            "equipamento":{
+                                "type"      : "object",
+                                "properties": {
+                                    "id":{
+                                        "type": "integer"
+                                    },
+                                    "nome":{
+                                        "type": "string"
+                                    },
+                                    "cidade":{
+                                        "type": "string"
+                                    },
+                                    "qtd_analises":{
+                                        "type": "integer"
+                                    },
+                                    "request":{
+                                        "type": "object",
+                                        "$ref": "#/components/schemas/Example Response"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "Analise":{
+                "type"      : "object",
+                "properties": {
+                    "id":{
+                        "type": "integer"
+                    },
+                    "ph":{
+                        "type"  : "number",
+                        "format": "float"
+                    },
+                    "cloro":{
+                        "type"  : "number",
+                        "format": "float"
+                    },
+                    "fluor":{
+                        "type"  : "number",
+                        "format": "float"
+                    },
+                    "vazao":{
+                        "type"  : "number",
+                        "format": "float"
+                    },
+                    "request":{
+                        "type": "object",
+                        "$ref": "#/components/schemas/Example Response"
+                    }
+                }
+            },
+            "Response Analises index":{
+                "type"      : "object",
+                "properties": {
+                    "quantidade":{
+                        "type": "integer"
+                    },
+                    "analises":{
+                        "type" : "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Analise"
+                        }
+                    }
+                }
+            },
+            "Response Analises show":{
+                "type"      : "object",
+                "properties": {
+                    "id":{
+                        "type": "integer"
+                    },
+                    "ph":{
+                        "type"  : "number",
+                        "format": "float"
+                    },
+                    "cloro":{
+                        "type"  : "number",
+                        "format": "float"
+                    },
+                    "fluor":{
+                        "type"  : "number",
+                        "format": "float"
+                    },
+                    "vazao":{
+                        "type"  : "number",
+                        "format": "float"
+                    },
+                    "criado":{
+                        "type"  : "string",
+                        "format": "date-time"
+                    },
+                    "equipamento":{
+                        "type"      : "object",
+                        "properties": {
+                            "id":{
+                                "type": "integer"
+                            },
+                            "nome":{
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "request":{
+                        "type": "object",
+                        "$ref": "#/components/schemas/Example Response"
+                    }
+                }
+            },
+            "Response Analises data":{
+                "type"      : "object",
+                "properties": {
+                    "quantidade":{
+                        "type": "integer"
+                    },
+                    "analises":{
+                        "type" : "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Analise"
+                        }
+                    }
+                }
+            },
+            "Response Analises store":{
+                "type"      : "object",
+                "properties": {
+                    "mensagem":{
+                        "type": "string"
+                    },
+                    "analise":{
+                        "$ref": "#/components/schemas/Analise"
                     }
                 }
             }

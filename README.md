@@ -98,10 +98,16 @@ Eu sei que não ficou as mil maravilhas, mas o resultado obtido fazendo foi bom.
 
 ## O que eu poderia melhorar?
 
-- A documentação, pois ela não ficou como eu queria.
 - Ter colocado JTWtoken
 - E alguns possíveis bugs que irão aparecer kkkkk
 
 ## Quais foram as minhas dificuldades?
 
-Bah tiveram várias, mas creio que seja programar em uma linguagem nova e me acostumar com o seu jeito, fazer a documentação e não ter mais tempos entre os meus estudos para este projeto e as provas que estão vindo, mas mesmo com isso tudo eu consegui me divertir fazendo e espero que dê bons resultados. 
+Bah tiveram várias, mas creio que seja programar em uma linguagem nova e me acostumar com o seu jeito, fazer a documentação e não ter mais tempos entre os meus estudos para este projeto e as provas que estão vindo, mas mesmo com isso tudo eu consegui me divertir fazendo e espero que dê bons resultados.
+
+## Pós entrega
+
+Eu como ainda estava pensando neste projeto vim ver alguns error que eu achei que poderiam ter e os arrumei.
+
+- Arrumei o erro no Delete
+- Arrumei a documentação
