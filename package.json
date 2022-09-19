@@ -1,6 +1,6 @@
 {
   "name": "backend_test_augen",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Teste para estágio de desenvolvedor backend na empresa Augen Engenharia.",
   "main": "./bin/server.js",
   "scripts": {
