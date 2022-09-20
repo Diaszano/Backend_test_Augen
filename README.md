@@ -80,6 +80,7 @@ MYSQL_HOST="IP do banco de dados"
 MYSQL_PORT="Porta do banco de dados"
 MYSQL_DIALECT="mysql" # Esse tu deixa assim, pois é o banco que nós usamos.
 MYSQL_LOGGING=false # Se quiver ver os loggings do banco coloca true.
+JWT_KEY="Alguma senha segura" 
 ```
 
 - Depois de termos definido todas essas variáveis nós salvamos o arquivo.
@@ -93,17 +94,13 @@ $ npm start
 
 ## Como foi fazer?
 
-Foi uma experiência muito legal pra mim fazer esta API, pois eu tive estudar como se programa em nodejs e como se fazer APIs com ela, já que eu nunca tinha pego para programar em nodejs de fato.
-Eu sei que não ficou as mil maravilhas, mas o resultado obtido fazendo foi bom.
-
-## O que eu poderia melhorar?
-
-- Ter colocado JTWtoken
-- E alguns possíveis bugs que irão aparecer kkkkk
+Para mim, fazer este projeto foi um grande acumulo de conhecimentos e desbravamento de novas coisas.
+Com esse projeto conheci novas ferramentas as quais eu ainda não havia utilizado e até mesmo desbravar o node.
+Por fim, gostei muito de ter realizado e espero que de frutos bons.
 
 ## Quais foram as minhas dificuldades?
 
-Bah tiveram várias, mas creio que seja programar em uma linguagem nova e me acostumar com o seu jeito, fazer a documentação e não ter mais tempos entre os meus estudos para este projeto e as provas que estão vindo, mas mesmo com isso tudo eu consegui me divertir fazendo e espero que dê bons resultados.
+Creio que as minhas dificuldades foram mais em como utilizar algumas ferramentas e um pouco de sintaxe, fora isso foi uma experiência ótima.
 
 ## Pós entrega(Antes do dia 19/09 ás 23:59)
 
@@ -111,3 +108,4 @@ Eu como ainda estava pensando neste projeto vim ver alguns error que eu achei qu
 
 - Arrumei o erro no Delete
 - Arrumei a documentação
+- Coloquei o JWT

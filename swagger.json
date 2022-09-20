@@ -1,5 +1,5 @@
 {
-    "openapi": "3.0.3",
+    "openapi": "3.0.0",
     "info"   : {
         "title"      : "API de teste Augen Engenharia",
         "description": "Documentação da API de teste Augen Engenharia",
@@ -9,17 +9,176 @@
         },
         "servers":[
             {
-                "url"        : "http:localhost:3000",
+                "url"        : "/",
                 "description": "API de testes"
             }
         ]
     },
     "paths":{
+        "/usuarios/login":{
+            "post":{
+                "summary"    : "Login do usuário",
+                "description": "Essa rota será responsável pelo login do usuário.",
+                "tags"       : ["Usuarios"],
+                "requestBody": {
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "Usuario":{
+                                    "value":{
+                                        "email":{
+                                            "type": "string"
+                                        },
+                                        "senha":{
+                                            "type": "string",
+                                            "format": "password"
+                                        }
+                                    }
+                                }
+                            },
+                            "examples":{
+                                "Usuario":{
+                                    "value":{
+                                        "email" : "email@email.com.br",
+                                        "senha": "Alguma Senha Ai"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "500":{
+                        "description": "Erro interno.",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 500"
+                                }
+                            }
+                        }
+                    },
+                    "401":{
+                        "description": "Não autorizado",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 401"
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "description": "Faltando argumentos",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 400"
+                                }
+                            }
+                        }
+                    },
+                    "200":{
+                        "description": "OK",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Response Usuario Login"
+                                } 
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
+        "/usuarios/cadastro":{
+            "post":{
+                "summary"    : "Cadastro do usuário",
+                "description": "Essa rota será responsável pelo cadastro do usuário.",
+                "tags"       : ["Usuarios"],
+                "requestBody": {
+                    "content":{
+                        "application/json":{
+                            "schema":{
+                                "Usuario":{
+                                    "value":{
+                                        "email":{
+                                            "type": "string"
+                                        },
+                                        "senha":{
+                                            "type": "string",
+                                            "format": "password"
+                                        }
+                                    }
+                                }
+                            },
+                            "examples":{
+                                "Usuario":{
+                                    "value":{
+                                        "email" : "email@email.com.br",
+                                        "senha": "Alguma Senha Ai"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses":{
+                    "500":{
+                        "description": "Erro interno.",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 500"
+                                }
+                            }
+                        }
+                    },
+                    "401":{
+                        "description": "Não autorizado",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 401"
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "description": "Faltando argumentos",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 400"
+                                }
+                            }
+                        }
+                    },
+                    "200":{
+                        "description": "OK",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Response Usuario Create"
+                                } 
+                            }
+                        }
+                    }
+
+                }
+            }
+        },
         "/equipamentos":{
             "post":{
                 "summary"    : "Cadastro de equipamentos",
                 "description": "Essa rota será responsável por cadastrar um novo equipamento.",
                 "tags"       : ["Equipamentos"],
+                "security"   : [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
                 "requestBody": {
                     "content":{
                         "application/json":{
@@ -57,6 +216,16 @@
                             }
                         }
                     },
+                    "401":{
+                        "description": "Não autorizado",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 401"
+                                }
+                            }
+                        }
+                    },
                     "400":{
                         "description": "Faltando argumentos",
                         "content"    : {
@@ -84,6 +253,7 @@
                 "description": "Busca de todos os equipamentos",
                 "summary"    : "Busca todos os equipamentos cadastrados na API",
                 "tags"       : ["Equipamentos"],
+                "security"   : [{"bearerAuth":[]}],
                 "responses"  : {
                     "500":{
                         "description": "Erro interno.",
@@ -91,6 +261,16 @@
                             "application/json":{
                                 "schema":{
                                     "$ref": "#/components/schemas/Error 500"
+                                }
+                            }
+                        }
+                    },
+                    "401":{
+                        "description": "Não autorizado",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 401"
                                 }
                             }
                         }
@@ -113,6 +293,7 @@
                 "description": "Busca um equipamento",
                 "summary"    : "Busca um equipamento cadastrado na API",
                 "tags"       : ["Equipamentos"],
+                "security"   : [{"bearerAuth":[]}],
                 "parameters" : [
                     {
                         "name"       : "id",
@@ -138,6 +319,16 @@
                             "application/json":{
                                 "schema":{
                                     "$ref": "#/components/schemas/Error 404"
+                                }
+                            }
+                        }
+                    },
+                    "401":{
+                        "description": "Não autorizado",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 401"
                                 }
                             }
                         }
@@ -168,6 +359,7 @@
                 "description": "Atualiza um equipamento",
                 "summary"    : "Atualiza um equipamento cadastrado na API",
                 "tags"       : ["Equipamentos"],
+                "security"   : [{"bearerAuth":[]}],
                 "parameters" : [
                     {
                         "name"       : "id",
@@ -223,6 +415,16 @@
                             }
                         }
                     },
+                    "401":{
+                        "description": "Não autorizado",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 401"
+                                }
+                            }
+                        }
+                    },
                     "400":{
                         "description": "Faltando argumentos",
                         "content"    : {
@@ -249,6 +451,7 @@
                 "description": "Deleta um equipamento",
                 "summary"    : "Deleta um equipamento cadastrado na API",
                 "tags"       : ["Equipamentos"],
+                "security"   : [{"bearerAuth":[]}],
                 "parameters" : [
                     {
                         "name"       : "id",
@@ -274,6 +477,16 @@
                             "application/json":{
                                 "schema":{
                                     "$ref": "#/components/schemas/Error 404"
+                                }
+                            }
+                        }
+                    },
+                    "401":{
+                        "description": "Não autorizado",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 401"
                                 }
                             }
                         }
@@ -306,6 +519,7 @@
                 "summary"    : "Cadastro uma análise",
                 "description": "Essa rota será responsável por cadastrar uma nova análise.",
                 "tags"       : ["Análises"],
+                "security"   : [{"bearerAuth":[]}],
                 "requestBody": {
                     "content":{
                         "application/json":{
@@ -356,6 +570,16 @@
                             }
                         }
                     },
+                    "401":{
+                        "description": "Não autorizado",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 401"
+                                }
+                            }
+                        }
+                    },
                     "400":{
                         "description": "Faltando argumentos",
                         "content"    : {
@@ -383,6 +607,7 @@
                 "description": "Busca análises",
                 "summary"    : "Busca análises cadastradas na API",
                 "tags"       : ["Análises"],
+                "security"   : [{"bearerAuth":[]}],
                 "responses"  : {
                     "500":{
                         "description": "Erro interno.",
@@ -390,6 +615,16 @@
                             "application/json":{
                                 "schema":{
                                     "$ref": "#/components/schemas/Error 500"
+                                }
+                            }
+                        }
+                    },
+                    "401":{
+                        "description": "Não autorizado",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 401"
                                 }
                             }
                         }
@@ -412,6 +647,7 @@
                 "description": "Busca análise com o id",
                 "summary"    : "Busca análise com o id cadastrado na API",
                 "tags"       : ["Análises"],
+                "security"   : [{"bearerAuth":[]}],
                 "parameters" : [
                     {
                         "name"       : "id",
@@ -437,6 +673,16 @@
                             "application/json":{
                                 "schema":{
                                     "$ref": "#/components/schemas/Error 404"
+                                }
+                            }
+                        }
+                    },
+                    "401":{
+                        "description": "Não autorizado",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 401"
                                 }
                             }
                         }
@@ -467,6 +713,7 @@
                 "description": "Deleta uma análise",
                 "summary"    : "Deleta uma análise cadastrada na API",
                 "tags"       : ["Análises"],
+                "security"   : [{"bearerAuth":[]}],
                 "parameters" : [
                     {
                         "name"       : "id",
@@ -492,6 +739,16 @@
                             "application/json":{
                                 "schema":{
                                     "$ref": "#/components/schemas/Error 404"
+                                }
+                            }
+                        }
+                    },
+                    "401":{
+                        "description": "Não autorizado",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 401"
                                 }
                             }
                         }
@@ -524,6 +781,7 @@
                 "description": "Busca análises com a data",
                 "summary"    : "Busca análises com a data cadastrada na API",
                 "tags"       : ["Análises"],
+                "security"   : [{"bearerAuth":[]}],
                 "requestBody": {
                     "content":{
                         "application/json":{
@@ -567,6 +825,16 @@
                             }
                         }
                     },
+                    "401":{
+                        "description": "Não autorizado",
+                        "content"    : {
+                            "application/json":{
+                                "schema":{
+                                    "$ref": "#/components/schemas/Error 401"
+                                }
+                            }
+                        }
+                    },
                     "400":{
                         "description": "Faltando argumentos",
                         "content"    : {
@@ -602,6 +870,14 @@
                 }
             },
             "Error 404":{
+                "type"      : "object",
+                "properties": {
+                    "mensagem":{
+                        "type": "string"
+                    }
+                }
+            },
+            "Error 401":{
                 "type"      : "object",
                 "properties": {
                     "mensagem":{
@@ -892,6 +1168,47 @@
                         "$ref": "#/components/schemas/Analise"
                     }
                 }
+            },
+            "Response Usuario Login":{
+                "type":"object",
+                "properties": {
+                    "mensagem":{
+                        "type": "string"
+                    },
+                    "token":{
+                        "type": "string"
+                    }
+                }
+            },
+            "Response Usuario Create":{
+                "type":"object",
+                "properties": {
+                    "mensagem":{
+                        "type": "string"
+                    },
+                    "usuario":{
+                        "type": "object",
+                        "properties": {
+                            "id":{
+                                "type":"integer"
+                            },
+                            "email":{
+                                "type":"string"
+                            },
+                            "criado":{
+                                "type":"string",
+                                "format":"date-time"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type"        : "http",
+                "scheme"      : "bearer",
+                "bearerFormat": "JWT"
             }
         }
     }

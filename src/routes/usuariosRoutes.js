@@ -15,5 +15,14 @@ router.post("/cadastro",[
     controller.store
 ]);
 
+router.post("/login",[
+    body('email').isEmail().withMessage(
+        "O campo email tem que ser um email válido."
+    ),
+    body('senha').isString().withMessage(
+        "O senha é uma string."
+    ),
+    controller.login
+]);
 
 module.exports = router;

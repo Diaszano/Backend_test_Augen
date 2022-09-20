@@ -2,17 +2,18 @@ const express    = require('express');
 const {body}     = require('express-validator');
 const {param}    = require('express-validator');
 const controller = require('../controllers/equipamentosControllers');
+const login      = require("../middleware/login");
 
 
 const router = express.Router();
 
 
 router.get(
-    '/', controller.index
+    '/', login, controller.index
 );
 
 router.get(
-    '/:id',[
+    '/:id', login, [
         param('id').isInt({'gt':0}).withMessage(
             "O parâmetro id tem que ser um inteiro maior que zero"
         )
@@ -20,7 +21,7 @@ router.get(
 );
 
 router.post(
-    '/',[
+    '/', login, [
         body('nome').isString().isLength({'max':30,'min':2}).withMessage(
             "O campo de nome é obrigatório e é uma string, "+
             'com tamanho mínimo de 2 e máximo de 30'
@@ -33,7 +34,7 @@ router.post(
 );
 
 router.put(
-    '/:id',[
+    '/:id', login, [
         param('id').isInt({'gt':0}).withMessage(
             "O parâmetro id tem que ser um inteiro maior que zero"
         )
@@ -50,7 +51,7 @@ router.put(
 );
 
 router.delete(
-    '/:id',[
+    '/:id', login, [
         param('id').isInt({'gt':0}).withMessage(
             "O parâmetro id tem que ser um inteiro maior que zero"
         )
