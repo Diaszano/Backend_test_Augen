@@ -30,7 +30,7 @@
     - Excluir a análise (delete)
 
 Para testar e ver melhor as rotas ao rodar o programa acesse: 
--    http                                                   : //localhost:3000/docs
+-    http://localhost:3000/docs
 
 ## Banco de dados foi estruturado assim: 
 
