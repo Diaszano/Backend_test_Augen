@@ -9,27 +9,32 @@
 - Este sistema deve permitir o armazenamento externo dessas análises lincado para cada equipamento que fizer o envio dessas análises.
 - O sistema permite o cadastro de equipamentos com cidades e os relatórios.
 
-## Temos as rotas:
+## Temos as rotas: 
 
-- Equipamentos:
+- Usuários: 
+    - Criar Usuários
+    - Fazer o Login
+
+- Equipamentos: 
     - Listar todos equipamentos (index)
     - Listar equipamento pelo id (show)
     - Adicionar novo equipamento (store)
     - Editar o equipamento (edit)
     - Excluir o equipamento (delete)
 
-- Análises:
+- Análises: 
     - Listar todas análises (index)
     - Listar análise pelo id (show)
     - Listar análises conforme a data solicitada na requisição (get)
     - Adicionar nova análise (store)
     - Excluir a análise (delete)
 
-Para testar e ver melhor as rotas ao rodar o programa acesse:
-- http://localhost:3000/docs
+Para testar e ver melhor as rotas ao rodar o programa acesse: 
+-    http                                                   : //localhost:3000/docs
 
-## Banco de dados foi estruturado assim:
+## Banco de dados foi estruturado assim: 
 
+- Usuários (id,email,senha)
 - Equipamentos (id, nome, cidade)
 - Cidades (id,nome)
 - Análises (PH, Cloro, Fluor, Vazão, equipamento)
@@ -46,7 +51,7 @@ Para testar e ver melhor as rotas ao rodar o programa acesse:
 - O primeiro passo é baixar o projeto, então em uma pasta de sua escolha execute esse comando a seguir.
 
 ```shell
-$ git clone https://github.com/Diaszano/Backend_test_Augen.git
+$ git clone https: //github.com/Diaszano/Backend_test_Augen.git
 
 ```
 
@@ -62,9 +67,9 @@ $ cd Backend_test_Augen
 $ npm install
 ```
 
-### Antes de executarmos temos que definir algumas coisas, e elas são:
+### Antes de executarmos temos que definir algumas coisas, e elas são: 
 
-- Temos que fazer a criação de variáveis de ambiente como no arquivo '.env.example', para isso faremos assim:
+- Temos que fazer a criação de variáveis de ambiente como no arquivo '.env.example', para isso faremos assim: 
 
 ```shell
 $ nano .env
@@ -73,24 +78,24 @@ $ nano .env
 - Após ter entrado no nano iremos definir essas variáveis.
 
 ```nano
-MYSQL_USER="nome do usuário do banco de dados" 
-MYSQL_PASSWORD="senha do usuário do banco de dados"
-MYSQL_DATABASE="nome do database do banco de dados"
-MYSQL_HOST="IP do banco de dados"
-MYSQL_PORT="Porta do banco de dados"
-MYSQL_DIALECT="mysql" # Esse tu deixa assim, pois é o banco que nós usamos.
-MYSQL_LOGGING=false # Se quiver ver os loggings do banco coloca true.
-JWT_KEY="Alguma senha segura" 
+MYSQL_USER     = "nome do usuário do banco de dados"
+MYSQL_PASSWORD = "senha do usuário do banco de dados"
+MYSQL_DATABASE = "nome do database do banco de dados"
+MYSQL_HOST     = "IP do banco de dados"
+MYSQL_PORT     = "Porta do banco de dados"
+MYSQL_DIALECT  = "mysql" # Esse tu deixa assim, pois é o banco que nós usamos.
+MYSQL_LOGGING  = false # Se quiver ver os loggings do banco coloca true.
+JWT_KEY        = "Alguma senha segura"
 ```
 
 - Depois de termos definido todas essas variáveis nós salvamos o arquivo.
-- Para executarmos o programa fazemos:
+- Para executarmos o programa fazemos: 
 
 ```shell
 $ npm start
 ```
 
-# Minhas conclusões:
+# Minhas conclusões: 
 
 ## Como foi fazer?
 
